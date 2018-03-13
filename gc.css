@@ -1,0 +1,42 @@
+.wrapper{
+	position:relative;
+	
+	height:1000px;
+	width:960px;
+	
+	margin:auto;
+	
+}
+
+.nav{
+	width:660px;
+	margin:auto;
+	border:0px solid red;
+}
+
+.btn{
+	margin-right:15px;
+	float:right;
+}
+.conf{
+	position:absolute;
+	top:400px;
+	left:180px;
+	border:0px solid red;
+	width:600px;
+	height:100px;
+	background:black;
+	color:white;
+	font-size:6.5em;
+	font-variant: small-caps;
+	font-family:Lucida Sans Unicode;
+	padding-left:5px;
+}
+.econf{
+position:absolute;
+top:500px;
+left:165px;
+font-size:1em;
+font-family:Lucida Sans Unicode;
+font-variant: small-caps;
+}

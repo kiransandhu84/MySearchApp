@@ -1,0 +1,579 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>RWD-Assignment</title>
+<meta name="viewport" content="width=device-width">
+<!-- bootstrap:css -->
+<link rel="stylesheet" href="./css/bootstrap.min.css" />
+<!-- Custom CSS -->
+<link rel="stylesheet" href="./css/main.css" />
+</head>
+<body ng-app="myApp" ng-controller="MainCtrl">
+	<div class="main-head-wapper col-sm-12 col-xs-12 col-md-12 nopadding ">
+		<header style="width: 100%; background: #1428a0;">
+			<div class="container">
+				<nav>
+					<div class="container-fluid">
+						<div class="navbar-header col-xs-3 col-sm-3 col-md-3">
+							<!-- <a
+								class="navbar-brand col-xs-2 col-sm-2 col-md-2 nopadding paddingtop15"
+								href="#" style=""> <img class="img-responsive"
+								src="./images/menu.png" style="">
+							</a> --> <a
+								class="navbar-brand col-xs-10 col-sm-10 col-md-10 nopadding paddingtop15"
+								href="#"> <img class="img-responsive"
+								src="./images/logo.png" style="">
+							</a>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-6">
+							<form class="navbar-form" role="search">
+								<div class="input-group col-xs-12 col-sm-12 col-md-12">
+									<!--<input type="text" class="form-control searchbox" placeholder="Enter your keywords here" name="srch-term" id="srch-term">-->
+									<input type="text" ng-model="searched"
+										uib-typeahead="product for product in productTypes | filter:$viewValue"
+										class="form-control searchbox"
+										placeholder="Enter your keywords here"
+										typeahead-on-select="onSelect($item)">
+
+									<div class="input-group-btn">
+										<button class="btn btn-default searchbarbutton" type="submit">
+											<i class="glyphicon glyphicon-search"></i>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-3">
+							<a class="col-xs-4 col-sm-4 col-md-4 paddingtop15" href="#">
+								<img class="img-responsive" src="./images/user.png" style="">
+							</a>
+							<div class="col-xs-8 col-sm-8 col-md-8 paddingtop">
+								<div>Abhishek</div>
+								<div>
+									<a> LOGOUT</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<header style="width: 100%; background: #CECECE;">
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12 pull-left">
+					<div class="sub-menu">
+						<nav class="navbar navbar-inverse">
+							<div class="container-fluid">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle"
+										data-toggle="collapse" data-target="#myNavbar">
+										<span class="icon-bar"></span> <span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+									<a class="navbar-brand" href="#">Categories<span
+										class="glyphicon glyphicon-chevron-right paddingleft"></span></a>
+								</div>
+								<div class="collapse navbar-collapse" id="myNavbar">
+									<ul class="nav navbar-nav">
+										<li><a href="#">Mobile Devices</a></li>
+										<li><a href="#">TV/AV</a></li>
+										<li><a href="#">Camera and Camcorders</a></li>
+										<li><a href="#">Home Appliances</a></li>
+										<li><a href="#">IT</a></li>
+										<li><a href="#">Storage</a></li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+
+					</div>
+				</div>
+		</header>
+	</div>
+
+	<section>
+		<div class="container">
+			<div class="col-xs-12 col-sm-9 col-md-9" style="padding-right: 0px;">
+				<div class="col-xs-12 col-sm-12 co-md-12 article nopadding">
+				
+				<div class="col-xs-12 col-sm-12 co-md-12 article nopadding">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Model</th>
+							<th>Description</th>
+							<th>Discounted Price</th>
+							<th>Actual Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="v in dummydataArray track by $index" ng-click="selected($index)" ng-class="{selected: v.id === idSelected }">
+							<td>{{v.id = $index+1}}</td>
+							<td>{{v.model}}</td>
+							<td>{{v.description}}</td>
+							<td>{{v.discountedprice}}</td>
+							<td class="actualprice">{{v.actualprice}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+				
+				
+				
+				
+				
+					<div class="col-xs-4 col-sm-4 co-md-4 padding1em">
+						<img class="img-responsive discountpercentageimg" ng-src="{{selectedData.imageURL}}" ><!--</span>-->
+					</div>
+
+					<div class="col-xs-8 col-sm-8 co-md-8 padding1em">
+						<div class="productname">
+							<p>{{selectedData.model}}</p>
+						</div>
+						<div>
+							<p>Order Id: # {{selectedData.OrderId}}</p>
+						</div>
+						<div class="productprice">
+							<p>Rs. {{selectedData.discountedprice}}</p>
+						</div>
+						<div class="price">
+							<span>Rs </span><span class="actualprice">{{selectedData.actualprice}}</span>
+						</div>
+						<div class="col-xs-12 col-sm-12 co-md-12 bookingsummary">
+							<div class="col-xs-4 col-sm-4 co-md-4 ">
+								<div class="col-xs-12 col-sm-12 co-md-12 nopadding">
+									<p>Order Date</p>
+								</div>
+								<div class="col-xs-12 col-sm-12 co-md-12 nopadding">
+									<p>{{selectedData.orderdate}}</p>
+								</div>
+							</div>
+
+							<div class="col-xs-4 col-sm-4 co-md-4 ">
+								<div class="col-xs-12 col-sm-12 co-md-12 nopadding">
+									<p>Delivered</p>
+								</div>
+								<div class="col-xs-12 col-sm-12 co-md-12 nopadding">
+									<p>{{selectedData.deliverydate}}</p>
+								</div>
+							</div>
+
+							<div class="col-xs-4 col-sm-4 co-md-4 ">
+								<div class="col-xs-12 col-sm-12 co-md-12 nopadding">
+									<p>Warranty</p>
+								</div>
+								<div class="col-xs-12 col-sm-12 co-md-12 nopadding">
+									<p>{{selectedData.description}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 co-md-12 padding1em">
+						<div class="col-xs-12 col-sm-12 co-md-12 padding1em quicklinks">
+						<ul class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Quick Help</a></li>
+							<li><a href="#">Product Warranty</a></li>
+							<li><a href="#">General FAQs</a></li>
+							<li><a href="#">Customer care</a></li>
+							<li><a href="#">Softwares</a></li>
+							<li><a href="#">Assesibility Help</a></li>
+						</ul>
+						<ul class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<li><a href="#"><span class="glyphicon glyphicon-user"></span>User Query</a></li>
+							<li><a href="#">Complaint</a></li>
+							<li><a href="#">Feedback & Reviews</a></li>
+							<li><a href="#">Email</a></li>
+							</ul>
+						<ul class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>Service & Support</a></li>
+							<li><a href="#">Locate Service Center</a></li>
+							<li><a href="#">Online Service Center</a></li>
+							<li><a href="#">Track your repair status</a></li>
+							<li><a href="#">Live chat</a></li>
+							<li><a href="#">Samsung Care App</a></li>
+						</ul>
+						</div>
+					</div>
+				</div>
+			<!--</article>-->
+			
+			
+		
+			<div class="col-xs-12 col-sm-12 co-md-12 article nopadding">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Avg Review</th>
+							<th>Price</th>
+							<th>Product Information</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr dir-paginate="user in users|itemsPerPage:usersPerPage" total-items="totalUsers" current-page="pagination.current">
+							<td>{{user.name[0]| limitTo : 15}}</td>
+							<td>{{user.AvgReview[0]}}</td>
+							<td>{{user.price[0]}}</td>
+							<td>{{user.product_information[0]| limitTo : 50 }}...!!!</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="pull-right">
+				<dir-pagination-controls
+				   
+				   direction-links="true"
+				   boundary-links="true" 
+				   
+				   on-page-change="getDataFromServer(newPageNumber)"
+				   >
+				</dir-pagination-controls>
+				</div>
+			</div>
+
+			
+			
+
+			<div class="col-xs-12 col-sm-12 col-md-12 basepadding basebackground">
+				<div class="row">
+					<div class="row newlaunches">
+						<div class="col-md-9">
+							<h3>NEW LAUNCHES</h3>
+						</div>
+						<div class="col-md-3">
+							<!-- Controls -->
+							<div class="controls pull-right hidden-xs">
+								<a class="left glyphicon glyphicon-chevron-left btn btn"
+									href="#carousel-example" data-slide="prev"></a><a
+									class="right glyphicon glyphicon-chevron-right btn"
+									href="#carousel-example" data-slide="next"></a>
+							</div>
+						</div>
+					</div>
+					<div id="carousel-example" class="carousel slide"
+						data-ride="carousel">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="col-item">
+											<div class="photo">
+												<img class="img-responsive" src="./images/reffigator.png"
+													alt="reffigator1" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-4">
+										<div class="col-item col-item-middle">
+											<div class="photo">
+												<img class="img-responsive" src="./images/reffigator-2.png"
+													alt="reffigator2" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="col-item">
+											<div class="photo">
+												<img class="img-responsive" src="./images/tv.png" alt="TV" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="col-item">
+											<div class="photo">
+												<img class="img-responsive" src="./images/reffigator.png"
+													alt="reffigator1" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-4">
+										<div class="col-item col-item-middle">
+											<div class="photo">
+												<img class="img-responsive" src="./images/reffigator-2.png"
+													alt="reffigator2" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="col-item">
+											<div class="photo">
+												<img class="img-responsive" src="./images/tv.png" alt="TV" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="col-item">
+											<div class="photo">
+												<img class="img-responsive" src="./images/reffigator.png"
+													alt="reffigator1" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-4">
+										<div class="col-item col-item-middle">
+											<div class="photo">
+												<img class="img-responsive" src="./images/reffigator-2.png"
+													alt="reffigator2" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="col-item">
+											<div class="photo">
+												<img class="img-responsive" src="./images/tv.png" alt="TV" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<a href="#" class="hidden-sm">Add to cart</a>
+													</p>
+													<p class="btn-details">
+														<a href="#" class="hidden-sm">More details</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="col-xs-12 col-sm-3 co-md-3 basepadding nopadding hidden-xs aside" style="border-left: 1px solid #a8a8a8;">
+				
+				<aside class="col-xs-12 col-sm-12 co-md-12 basepadding">
+				<img class="img-responsive basepadding"
+					src="./images/side-img-1.png"> <img
+					class="img-responsive basepadding" style="padding-top: 0px;"
+					src="./images/side-img-2.png">
+			</aside>
+				
+				<div class="recentviewdiv">
+						<div class="col-md-12 recentview pull-right">
+							<h5>YOU RECENTLY VIEWED</h5>
+						</div>
+				</div>
+				
+				<div ng-if="recentlySearchedArray.length>0" class="col-xs-12 col-sm-12 co-md-12 basepadding" ng-repeat="item in recentlySearchedArray | limitTo : 7">
+					<div class="col-xs-4 col-sm-4 co-md-4 padding1em">
+						<img class="img-responsive" ng-src="{{item.imageURL}}" src="./images/mobile-1.png"><!--</span>-->
+					</div>
+
+					<div class="col-xs-8 col-sm-8 co-md-8 padding1em">
+						<div class="sideproductname">
+							<p>{{item.model}}</p>
+						</div>
+						<div>
+							<p>Rs. {{item.discountedprice}}</p>
+						</div>
+						<div>
+							<span>Rs </span><span class="actualprice">{{item.actualprice}}</span>
+						</div>
+					</div>
+				</div>
+				<div ng-if="recentlySearchedArray.length<=0">
+					<p style="margin:2em">
+					Nothing searched so far...
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<footer>
+		<div class="footertopsection">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h3>Categries</h3>
+					</div>
+					<div class="col-md-12">
+						<ul class="mobile col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<li><a href="#">Mobile Devices</a></li>
+							<li><a href="#">Galaxy S6</a></li>
+							<li><a href="#">Galaxy S5</a></li>
+							<li><a href="#">Galaxy S4</a></li>
+							<li><a href="#">Galaxy S3</a></li>
+							<li><a href="#">Galaxy S2</a></li>
+							<li><a href="#">Galaxy S1</a></li>
+						</ul>
+						<ul class="camera col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<li><a href="#">Camera</a></li>
+							<li><a href="#">cannon 1234</a></li>
+							<li><a href="#">cannon 1234</a></li>
+							<li><a href="#">cannon 1234</a></li>
+							<li><a href="#">cannon 1234</a></li>
+							<li><a href="#">cannon 1234</a></li>
+							<li><a href="#">cannon 1234</a></li>
+						</ul>
+						<ul class="home col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<li><a href="#">Home Appliances</a></li>
+							<li><a href="#">Refrigerator</a></li>
+							<li><a href="#">Washing Machine</a></li>
+							<li><a href="#">coocking Appliances</a></li>
+							<li><a href="#">Air condition</a></li>
+						</ul>
+						<ul class="memory col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<li><a href="#">Memory / Storage</a></li>
+							<li><a href="#">SSD</a></li>
+							<li><a href="#">Memory card</a></li>
+							<li><a href="#">USB Flash Drive</a></li>
+						</ul>
+					</div>
+					<!-- <div class="col-xs-12 col-sm-12 col-md-12 credit text-right">
+						<p>
+							Developed by <a href="#">Vipul Agarwal</a> exclusively for <a
+								href="#"><em>POC</em></a>
+						</p>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<div class="socialsection">
+			<div class="container">
+				<div class="col-xs-4 col-sm-4 col-md-5 pull-left">
+					<p class="footer-copyright">Copyright © 1995-2016 SAMSUNG All
+						Rights reserved.</p>
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-7">
+					<div class="col-xs-4 col-sm-4 col-md-4 nopadding socialLine1">
+						<p>Keep in Touch</p>
+						<p>Social Connect</p>
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 pull-right socialicons">
+						<span><a href="#"><img class="img-responsive"
+								src="./images/facebook.png" alt="facebook"></a></span> <span><a
+							href="#"><img class="img-responsive"
+								src="./images/pinerset.png" alt="pinerset"></a></span> <span><a
+							href="#"><img class="img-responsive"
+								src="./images/twitter.png" alt="twitter"></a></span> <span><a
+							href="#"><img class="img-responsive"
+								src="./images/google-plus.png" alt="google-plus"></a></span> <span><a
+							href="#"><img class="img-responsive"
+								src="./images/youtube.png" alt="youtube"></a></span> <span><a
+							href="#"><img class="img-responsive"
+								src="./images/linkedin.png" alt="linkedin"></a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- scripts -->
+	<script src="./js/jquery-1.12.1.min.js"></script>
+	<script src="./js/angular.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/ui-bootstrap-tpls-1.2.1.min.js"></script>
+	<script src="./js/app.js"></script>
+	<script src="./js/controller.js"></script>
+	<script src="./js/dirPagination.js"></script>
+</body>
+</html>

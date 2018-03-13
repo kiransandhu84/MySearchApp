@@ -1,0 +1,444 @@
+body {
+	background-color: #EFEFEF;
+}
+
+.article {
+	background-color: #fff;
+}
+
+aside {
+	background-color: #fff;
+}
+.aside {
+	background-color: #fff;
+}
+
+ul {
+	list-style: none
+}
+
+.basebackground {
+	background-color: #fff;
+}
+
+.basepadding {
+	padding: 1em;
+}
+
+.nopadding {
+	padding: 0px;
+}
+
+.navbar-inverse {
+	background-color: #CECECE;
+	border-color: #CECECE;
+	margin-bottom: 0px;
+	padding-left: 3%;
+}
+
+.navbar-brand {
+	color: #393939 !important;
+	font-size: 14px;
+}
+
+.navbar-nav>li>a {
+	color: #615f5f !important;
+	font-weight: 600;
+}
+.navbar-nav>li>a:hover {
+    color: #A7A3A3 !important;
+}
+
+.searchbox {
+	background: #2C44CD;
+	border: #2c44cd;
+	color: #fff;
+}
+
+.searchbarbutton {
+	background: #2C44CD;
+	border: #2c44cd;
+	height: 34px;
+	color: #fff;
+}
+
+.searchbarbutton:focus {
+	background: #2C44CD;
+	border: #2c44cd;
+	height: 34px;
+	color: #fff;
+}
+
+.searchbarbutton:hover {
+	background: #2C44CD;
+	border: #2c44cd;
+	height: 34px;
+	color: #fff;
+}
+
+.paddingtop {
+	padding-top: 5px;
+}
+
+.paddingtop15 {
+	padding-top: 1em;
+}
+
+.padding1em{
+	padding : 1em;
+}
+
+
+.paddingleft {
+	padding-left: 10px;
+}
+
+.menu-links {
+	list-style-type: none;
+}
+
+.menu-links  li {
+	display: inline;
+	padding: 5px;
+}
+
+.sub-menu {
+	line-height: 1;
+	font-size: 14px;
+}
+
+#categories {
+	padding-left: 4%;
+}
+
+.bookingsummary {
+	border-top: 1px solid #a8a8a8;
+	border-bottom: 1px solid #a8a8a8;
+	padding-top: 1em;
+}
+
+.quicklinks{
+    background: #fffad0;
+}
+
+.quicklinks ul li:first-child a {
+	font-size: large;
+}
+.quicklinks ul li:first-child a span {
+    padding-right: 1%;
+}
+
+.quicklinks ul li a {
+    color: #000;
+}
+
+
+.productname{
+    font-size: 2em;
+}
+
+.productprice{
+    font-size: 1.5em;
+}
+
+.price{
+    margin-bottom: 3em;
+}
+
+.sideproductname{
+    font-weight: 600;
+}
+
+
+.actualprice {
+	text-decoration: line-through;
+}
+
+.discountpercentage{
+	background: #60BE78;
+    text-align: right;
+    padding: 0px;
+}
+.discountpercentageimg{
+    height: 250px;
+	margin: auto;
+}
+
+article img {
+    margin: 0 auto;
+    width: 150%;
+}
+
+/* NewLaunches*/
+.newlaunches {
+	clear: both;
+	position: relative;
+	color: #393939;
+	background: #E7E7E7;
+	font-size: 1em;
+	margin: 0 15px 15px -10px;
+	-moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.newlaunches:before {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	z-index: -1;
+	position: absolute;
+	border-top: 10px solid rgba(158, 158, 158, 1);
+	border-left: 10px solid transparent;
+	background: transparent;
+}
+
+.newlaunches h3{
+	margin: 5px 0px;
+}
+.recentviewdiv{
+	padding-left: 1em;
+    margin-right: -1em;
+}
+
+.recentview {
+	clear: both;
+	position: relative;
+	color: #393939;
+	background: #E7E7E7;
+	font-size: 1em;
+	-moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.recentview:after {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	bottom: -10px;
+	z-index: -1;
+	position: absolute;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid rgba(158, 158, 158, 1);
+	background: transparent;
+	right: 0;
+	left: auto;
+
+}
+
+.recentview h3{
+	margin: 5px 0px;
+}
+
+a.left.glyphicon.glyphicon-chevron-left.btn.btn {
+    color: #a8a8a8;
+}
+
+a.right.glyphicon.glyphicon-chevron-right.btn{
+	color: #a8a8a8;
+}
+
+/* Slider css Start */
+.col-item:hover {
+	border: 2px solid #FBCC5C;
+	border-radius: 5px;
+	padding: 0px;
+}
+
+.col-item {
+	padding: 2px;
+	background: #FFF;
+}
+
+.col-item-middle {
+	border: 2px solid #FBCC5C;
+	border-radius: 5px;
+	background: #FFF;
+}
+
+.col-item .photo img {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.col-item .info {
+	padding: 10px;
+	border-radius: 0 0 5px 5px;
+	margin-top: 1px;
+}
+
+.col-item:hover .info {
+	background-color: rgba(215, 215, 244, 0.5);
+}
+
+.col-item .price {
+	/*width: 50%;*/
+	float: left;
+	margin-top: 5px;
+}
+
+.col-item .price h5 {
+	line-height: 20px;
+	margin: 0;
+}
+
+.price-text-color {
+	color: #00990E;
+}
+
+.col-item .info .rating {
+	color: #003399;
+}
+
+.col-item .rating {
+	/*width: 50%;*/
+	float: left;
+	font-size: 17px;
+	text-align: right;
+	line-height: 52px;
+	margin-bottom: 10px;
+	height: 52px;
+}
+
+.col-item .separator {
+	border-top: 1px solid #FFCCCC;
+}
+
+.clear-left {
+	clear: left;
+}
+
+.col-item .separator p {
+	line-height: 20px;
+	margin-bottom: 0;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.col-item .separator p i {
+	margin-right: 5px;
+}
+
+.col-item .btn-add {
+	width: 50%;
+	float: left;
+}
+
+.col-item .btn-add {
+	border-right: 1px solid #CC9999;
+}
+
+.col-item .btn-details {
+	width: 50%;
+	float: left;
+	padding-left: 10px;
+}
+
+.controls a {
+    background: #fff;
+}
+
+[data-slide="prev"] {
+	margin-right: 10px;
+}
+
+/* Slider css end */
+.footertopsection {
+	background: #060D33;
+}
+
+.footertopsection h3 {
+	color: orange;
+}
+
+.footertopsection ul li:first-child a {
+	color: orange;
+}
+
+.footertopsection ul li a {
+	color: #fff;
+}
+
+.socialsection {
+	background: #09134A;
+}
+
+.socialsection img.img-responsive {
+	display: inline-block;
+}
+
+.footer-copyright {
+	padding: 1em;
+	color: #fff;
+	margin-bottom: 0px;
+}
+
+.socialLine1 {
+	color: #fff;
+	text-align: right;
+}
+
+.socialLine1 p:first-child {
+	font-size: 1.5em;
+	margin-bottom: 0px;
+}
+
+.socialicons {
+	padding: 1em;
+}
+
+.selected {
+  background-color: cornflowerblue !important;
+    color: whitesmoke;
+}
+
+@media (max-width: 992px){
+.navbar-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+a.navbar-brand{
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.navbar-nav {
+    width: 88%;
+}
+
+.navbar-inverse {
+    padding-left: 0%;
+}
+
+.discountpercentageimg {
+    height: 300px;
+}
+
+}
+
+
+@media screen and (max-width: 767px) {
+	.menu-links {
+		display: none;
+	}
+	.paddingleft {
+		padding-left: 0px;
+	}
+}
+
+@media screen and (max-width:767px){
+.navbar-form {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+}
